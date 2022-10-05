@@ -1,13 +1,13 @@
 # CIP-FDS
 Criminal IP FDS 
 
-Make log file for visualization on Splunk dashboard. 
+FDS Analaysis by Criminal IP /  Criminal IP를 통해 FDS 데이터 분석 
 
 - [Description](#description)
 - [Getting started](#getting-started)
 
 ## Description
-해당 파일은 Criminal IP Global service를 사용하는 고객들 중 'Criminal IP FDS for Splunk' splunk app을 사용하고자 하는 고객들을 위해 작성된 sample code 입니다.
+해당 파일은 Criminal IP Global service를 사용하는 고객들 중 FDS 관점에서 데이터를 분석하기 위해 작성된 sample code 이며, 이 데이터를 Splunk App 에 넣어서 보는 것도 가능합니다.
 [Criminal IP API](https://www.criminalip.io/ko/developer/api/get-ip-data) 중 '/ip/data/'를 사용하여 리턴되는 값을 가공하여 json format의 log file을 생성하게 합니다.
 
 
