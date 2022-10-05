@@ -6,6 +6,8 @@ from datetime import datetime
 import sys
 
 
+file_location = 'input your file location'
+
 def make_log(request_ip,request_time):
     ip_result = {}
     tag_list = []
@@ -72,11 +74,10 @@ def make_log(request_ip,request_time):
 def make_file(ip_address):
     try :
         request_ip = ip_address
-        IP_Key = request_ip
         request_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         ip_result = make_log(request_ip,request_time)
         print(ip_result)
-        with open('input file_location','a+') as f:
+        with open(file_location,'a+') as f:
             f.write(json.dumps(ip_result) + '\n')
                     
     except Exception as e:
