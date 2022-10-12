@@ -1,6 +1,8 @@
 # CIP-FDS
 Criminal IP FDS 
 
+Korean: [README.kor.md](README.kor.md)
+
 Analyzing FDS Data through Criminal IP
 
 - [Description](#description)
