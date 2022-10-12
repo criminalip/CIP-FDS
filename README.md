@@ -1,17 +1,17 @@
 # CIP-FDS
 Criminal IP FDS 
 
-FDS Analaysis by Criminal IP /  Criminal IP를 통해 FDS 데이터 분석 
+Analyzing FDS Data through Criminal IP
 
 - [Description](#description)
 - [Getting started](#getting-started)
 
 ## Description
-해당 파일은 Criminal IP Global service를 사용하는 고객들 중 FDS 관점에서 데이터를 분석하기 위해 작성된 sample code 이며, 이 데이터를 Splunk App 에 넣어서 보는 것도 가능합니다.
-[Criminal IP API](https://www.criminalip.io/ko/developer/api/get-ip-data) 중 '/ip/data/'를 사용하여 리턴되는 값을 가공하여 json format의 log file을 생성하게 합니다.
+This file is a sample code that is meant to analyze data from an FDS perspective, which can also be viewed by being inputted into the Splunk App. This service is available to Criminal IP Global service members. 
+Process returning value with ‘/ip/data/’ from [Criminal IP API](https://www.criminalip.io/ko/developer/api/get-ip-data) and generate a log file in json format. 
 
 
-API 결과값 일부분 
+Partial result value of API
 ```
 $ curl --location --request GET "https://api.criminalip.io/v1/ip/data?ip=1.1.1.1&full=true" --header "x-api-key: <YOUR_API_KEY>"
 {16 items
@@ -35,7 +35,7 @@ $ curl --location --request GET "https://api.criminalip.io/v1/ip/data?ip=1.1.1.1
 
 ```
 
-가공된 Log file
+Generated Log File
 ```
 {"datetime": "2022-09-28 13:46:34", "ip_score": "Moderate", "IP": "223.38.40.211", "country": "Korea", "as_name": "SK Telecom", "mobile": true, "tag_category": "mobile, vpn", "ip_category": "ddos (Medium), tor"}
 ```
@@ -48,19 +48,19 @@ $ git clone https://github.com/criminalip/CIP-FDS.git
 ```
 
 ### Usage
-사용 하기에 앞서 3가지 작업이 필요합니다.
+Please follow these 3 steps before using this service.
 
-1. [Criminal IP](https://www.criminalip.io/ko)에 가입을 해서 API-KEY를 생성해야 합니다. 생성하신 API-KEY는 `Criminal/core/api/crminalip.py`에 입력해 주셔야합니다.
+1. Create an API-KEY by signing up for [Criminal IP](https://www.criminalip.io/ko) The API-KEY created must be inputted into `Criminal/core/api/crminalip.py`
 
-2. `Criminal/main.py`의 `file_location` 변수에 log file을 저장하고자 하는 위치를 넣어주셔야 합니다.
+2. Input where the log file must be saved in the `file_location` variable of `Criminal/main.py`
 
-3. 필요 Library들을 설치합니다. (requirement.txt)
+3. Install required libraries `requirement.txt`
 
 ```
 $ pip install -r requirement.txt
 ```
 
-아래 예제는 1.1.1.1을 검색을 한 결과 입니다. IP의 스코어링, 국가 정보, as_name 등 여러 정보들을 확인할 수 있습니다. 
+The example below shows the results of searching 1.1.1.1. You can find various information about this IP address, such as its scoring, country information, as_name etc. 
 ```
 $ python3 main.py 1.1.1.1
 
