@@ -1,11 +1,4 @@
-import urllib3
 import requests
-
-
-# from core.utils import utils
-
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def getipdata(ip: str) -> dict:
